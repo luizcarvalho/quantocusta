@@ -2,12 +2,12 @@ require 'spec_helper'
 
 RSpec.describe Calculator do
 
-	let(:calculator) { Calculator.new }
+	let(:calculator) { Calculator }
 	let(:params) {
-    {
-      'attribute_1' => 'value1',
-      'attribute_2' => 'value2'
-    }
+	    {
+	      'attribute_1' => 'value1',
+	      'attribute_2' => 'value2'
+	    }
 	}
 
 	let(:defined_params) {		
@@ -41,5 +41,10 @@ RSpec.describe Calculator do
 
 	it '#calculate' do
 		expect(calculator.calculate(params)).to eq(120)
+	end
+
+	it '#safely_params' do
+		params.merge!({'unknown'=>'dumb', 'attribute_1' => ''})
+		expect(calculator.safely_params(params)).to eq({'attribute_2'=>'value2'})
 	end
 end
