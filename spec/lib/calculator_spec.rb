@@ -1,6 +1,6 @@
-require 'calculator'
+require 'spec_helper'
 
-describe Calculator do
+RSpec.describe Calculator do
 
 	let(:calculator) { Calculator.new }
 	let(:params) {

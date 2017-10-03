@@ -1,4 +1,4 @@
-require 'constants'
+require_relative '../quantocusta'
 class Calculator
 	PRECO_POR_HORA = 60
 	EXCHANGE = 3.2
